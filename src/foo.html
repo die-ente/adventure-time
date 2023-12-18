@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let canvas = document.createElement("canvas");
+    let context = canvas.getContext("2d");
+    let ts = 256;
+
+    canvas.width = canvas.height = ts;
+    context.font = ts / (1 + 2) + "pt Arial";
+    console.log(ts / (1 + 2) + "pt Arial")
+    console.log("ts", ts)
+
+    context.fillStyle = "#00cccc";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+    context.fillStyle = "#ffff00";
+    context.fillText("A", canvas.width / 2, canvas.height / 2);
+
+    context.strokeStyle = "red"; // You can use any valid CSS color value
+    context.lineWidth = 50; // You can adjust the width as needed
+    context.strokeRect(0, 0, ts, ts);
+
+    document.body.appendChild(canvas);
+</script>
+</body>
+</html>
