@@ -78,7 +78,7 @@ export default function Page() {
                 <Field>
                     <Row letter={""}>
                         {new Array(10).fill(0).map((_, col) =>
-                            (<Tile color={"transparent"}>
+                            (<Tile color={"transparent"} key={`n-${col}`}>
                                 <Number>
                                     {col + 1}
                                 </Number>
@@ -86,9 +86,9 @@ export default function Page() {
                         )}
                     </Row>
                     {new Array(5).fill(0).map((_, row) =>
-                        (<Row letter={letters[row]}>
-                            {new Array(10).fill(0).map((_, row) =>
-                                (<Tile color={colors[getRandomIntInclusive(0, 3)]}/>)
+                        (<Row letter={letters[row]} key={`r-${row}`}>
+                            {new Array(10).fill(0).map((_, col) =>
+                                (<Tile color={colors[getRandomIntInclusive(0, 3)]} key={`t-${row}-${col}`}/>)
                             )}
                         </Row>)
                     )}

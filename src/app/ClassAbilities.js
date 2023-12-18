@@ -827,7 +827,7 @@ export const classAbilities = (player) => ({
                         summon it again
                     </div>
                     <div>
-                        Note: Since there are a lot of weapons, I can't list concrete stats here.
+                        Note: Since there are a lot of weapons, I can&apos;t list concrete stats here.
                         Just use this for flavor and attack using force weapon if you are forced into melee combat.
                     </div>
                 </>),
@@ -876,7 +876,7 @@ export const classAbilities = (player) => ({
                         highest). Additionally, other creatures can always discern when you’re telling the truth.
                     </div>
                     <div>
-                        Note: This doesn't mean they automatically know when you're lying, but they believe in every
+                        Note: This doesn&apos;t mean they automatically know when you&apos;re lying, but they believe in every
                         true statement you give - no matter how absurd.
                     </div>
                 </>),
@@ -933,7 +933,7 @@ export const classAbilities = (player) => ({
                     <div>
                         You can create pockets of relative safety within the effects of your spells. When you
                         cast a spell that affects other creatures that you can see, you can choose a number
-                        of them equal to 1 + the spell's level. The chosen creatures automatically succeed on their
+                        of them equal to 1 + the spell&apos;s level. The chosen creatures automatically succeed on their
                         saving throws against the spell, and they take no damage if they would normally take half damage
                         on a successful save.
                     </div>
