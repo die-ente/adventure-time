@@ -56,7 +56,7 @@ const Number = styled.div(({color}) => `
     transform: translateX(-50%);
 `)
 
-const colors = ["#ce6363", "#505091", "#68aa68", "#e1e19d"]
+const colors = ["#ce6363", "#68aa68", "#505091", "#e1e19d"]
 const letters = ["A", "B", "C", "D", "E"]
 
 function getRandomIntInclusive(min, max) {
@@ -66,15 +66,36 @@ function getRandomIntInclusive(min, max) {
 }
 
 
+const createField = () => {
+    const field = new Array(5).fill(0).map((_, row) => new Array(10).fill(0));
+
+    for(let i = 0; i < 5; i++) {
+        for(let j = 0; j < 10; j++) {
+            field[i][j] = getRandomIntInclusive(0, 3)
+        }
+    }
+
+    const getAdjacent = (row, col) => {
+        return [Math.max(0, Math.min( 4, row + getRandomIntInclusive(-1, 1))), col+1]
+    }
+
+    field[2][0] = 0;
+
+    let last = 2
+    for(let i = 0; i < 10; i++) {
+        const [row, col] = getAdjacent(last, i)
+        field[row][col] = (i+1) % 4;
+        last = row;
+    }
+
+    return field;
+}
+
+
 export default function Page() {
-    const [show, setShow] = useState(true);
+    const [field, setField] = useState(createField());
+
     return (<Container>
-        <form onSubmit={(e) => {
-            e.preventDefault()
-            setShow(false)
-            setTimeout(() => setShow(true), 1)
-        }}>
-            {show &&
                 <Field>
                     <Row letter={""}>
                         {new Array(10).fill(0).map((_, col) =>
@@ -88,23 +109,21 @@ export default function Page() {
                     {new Array(5).fill(0).map((_, row) =>
                         (<Row letter={letters[row]} key={`r-${row}`}>
                             {new Array(10).fill(0).map((_, col) =>
-                                (<Tile color={row === 2 && col === 0 ? "#ce6363" : colors[getRandomIntInclusive(0, 3)]} key={`t-${row}-${col}`}/>)
+                                (<Tile color={colors[field[row][col]]} key={`t-${row}-${col}`}/>)
                             )}
                         </Row>)
                     )}
                 </Field>
-            }
             <br/>
             <br/>
             <br/>
             <div style={{textAlign: "center"}}>
-                <b>You start at C1 and have to reach C10</b>
+                <b>You start at the left and have to reach the right</b>
                 <br/>
                 <br/>
-                <button>
+                <button onClick={() => setField(createField())}>
                     RESET
                 </button>
             </div>
-        </form>
     </Container>);
 }
