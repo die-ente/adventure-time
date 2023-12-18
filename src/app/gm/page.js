@@ -4,6 +4,6 @@ import {SocketProvider} from "@/app/SocketContext.component";
 
 export default function Page() {
     return (
-        <GmPage/>
+        <div>ABC</div>
     );
 }
