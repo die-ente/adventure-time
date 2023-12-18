@@ -88,7 +88,7 @@ export default function Page() {
                     {new Array(5).fill(0).map((_, row) =>
                         (<Row letter={letters[row]} key={`r-${row}`}>
                             {new Array(10).fill(0).map((_, col) =>
-                                (<Tile color={colors[getRandomIntInclusive(0, 3)]} key={`t-${row}-${col}`}/>)
+                                (<Tile color={row === 2 && col === 0 ? "#ce6363" : colors[getRandomIntInclusive(0, 3)]} key={`t-${row}-${col}`}/>)
                             )}
                         </Row>)
                     )}
